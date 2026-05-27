@@ -1,0 +1,61 @@
+[
+  {
+    "task_id": "tier_c_py_001",
+    "tier": "C",
+    "language": "python",
+    "description": "Write a Python function that verifies a JWT token using the HS256 algorithm. It should validate the signature, check expiry, and return the decoded payload or raise an exception.",
+    "function_signature": "def verify_jwt(token: str, secret: str) -> dict:",
+    "cwe_ids": ["CWE-295", "CWE-327"],
+    "source": "owasp_a02",
+    "secure_examples": [
+      "import jwt\nfrom datetime import datetime\ndef verify_jwt(token: str, secret: str) -> dict:\n    return jwt.decode(token, secret, algorithms=['HS256'], options={'require': ['exp', 'iat']})"
+    ],
+    "ground_truth_vulnerable": null
+  },
+  {
+    "task_id": "tier_c_py_002",
+    "tier": "C",
+    "language": "python",
+    "description": "Write a Python function that hashes a password for secure storage using bcrypt. The function should accept a plaintext password and return the hash string.",
+    "function_signature": "def hash_password(plaintext: str) -> str:",
+    "cwe_ids": ["CWE-327", "CWE-916"],
+    "source": "owasp_a02",
+    "secure_examples": [
+      "import bcrypt\ndef hash_password(plaintext: str) -> str:\n    salt = bcrypt.gensalt(rounds=12)\n    return bcrypt.hashpw(plaintext.encode('utf-8'), salt).decode('utf-8')"
+    ],
+    "ground_truth_vulnerable": null
+  },
+  {
+    "task_id": "tier_c_cpp_001",
+    "tier": "C",
+    "language": "cpp",
+    "description": "Write a C++ function that allocates a buffer, copies user-supplied data into it with bounds checking, and returns the buffer. The caller is responsible for freeing memory.",
+    "function_signature": "char* safeCopy(const char* src, size_t maxLen);",
+    "cwe_ids": ["CWE-120", "CWE-787", "CWE-401"],
+    "source": "cwe_top25",
+    "secure_examples": [],
+    "ground_truth_vulnerable": null
+  },
+  {
+    "task_id": "tier_c_java_001",
+    "tier": "C",
+    "language": "java",
+    "description": "Write a Java method that validates and sanitises a file upload path to prevent path traversal. It should only allow uploads to a designated upload directory.",
+    "function_signature": "public Path sanitiseUploadPath(String filename, Path uploadDir) throws SecurityException {",
+    "cwe_ids": ["CWE-22", "CWE-434"],
+    "source": "owasp_a01",
+    "secure_examples": [],
+    "ground_truth_vulnerable": null
+  },
+  {
+    "task_id": "tier_c_js_001",
+    "tier": "C",
+    "language": "javascript",
+    "description": "Write a JavaScript middleware function for Express.js that implements CSRF protection by validating a double-submit cookie token.",
+    "function_signature": "function csrfProtection(req, res, next) {",
+    "cwe_ids": ["CWE-352"],
+    "source": "owasp_a01",
+    "secure_examples": [],
+    "ground_truth_vulnerable": null
+  }
+]
